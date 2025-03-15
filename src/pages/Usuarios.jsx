@@ -14,7 +14,7 @@ const Usuarios = () => {
         setLista(response.data)
     }
 
-    useEffect(() => {
+    useEffect(() => {c
        getLista() 
     }, []);
 
