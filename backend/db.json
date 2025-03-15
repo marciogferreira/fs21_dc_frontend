@@ -1,0 +1,20 @@
+{
+  "products": [],
+  "users": [
+    {
+      "id": "1",
+      "username": "Admin",
+      "email": "admin@admin.com.br",
+      "password": "123123",
+      "address": {
+        "street": "Rua 1",
+        "number": "123",
+        "city": "Cidade",
+        "state": "SP",
+        "country": "Brasil"
+      }
+    }
+  ],
+  "orders": [],
+  "transactions": []
+}

@@ -2,29 +2,7 @@ import { useEffect, useState } from "react"
 import LayoutDefault from "../layouts/LayoutDefault"
 import { Table } from 'react-bootstrap'
 const Produtos = () => {
-    const [lista, setLista] = useState([
-        // {
-        //     id: 1,
-        //     title: 'Bolsa',
-        //     price: 109.54,
-        //     description: 'bolsa',
-        //     category: 'men´s clothing'
-        // },
-        // {
-        //     id: 2,
-        //     title: 'Calça',
-        //     price: 54.54,
-        //     description: 'calça',
-        //     category: 'men´s clothing'
-        // },
-        // {
-        //     id: 3,
-        //     title: 'Blusa',
-        //     price: 94.54,
-        //     description: 'Blusa',
-        //     category: 'men´s clothing'
-        // }
-    ]);
+    const [lista, setLista] = useState([]);
 
     async function listarProdutos() {
         const response = await fetch('https://fakestoreapi.com/products')
@@ -35,8 +13,7 @@ const Produtos = () => {
     useEffect(() => {
         listarProdutos()
     }, []);
-    console.log(lista)
-    // https://dontpad.com/fs21
+
     return (
         <LayoutDefault>
             <h4>Produtos</h4>
@@ -56,7 +33,7 @@ const Produtos = () => {
                 </thead>
                 <tbody>
                     {lista.map((item, indice) => (
-                        <tr>
+                        <tr key={indice}>
                             <td>{item.id}</td>
                             <td>
                                 <img src={item.image} alt={item.title} width="50" />
