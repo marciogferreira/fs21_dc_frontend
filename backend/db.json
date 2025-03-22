@@ -2,17 +2,46 @@
   "products": [],
   "users": [
     {
-      "id": "1",
+      "id": "c28e",
+      "username": "teste  DIgital College",
+      "email": "teste1212123@gmail.com",
+      "password": "1232423423"
+    },
+    {
+      "id": "48a0",
+      "username": "",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "f7e9",
+      "username": "admin@admin.com.br",
+      "email": "",
+      "password": "Max01!@#"
+    },
+    {
+      "id": "f203",
+      "username": "admin@admin.com.br",
+      "email": "",
+      "password": "Max01!@#"
+    },
+    {
+      "id": "4744",
       "username": "Admin",
-      "email": "admin@admin.com.br",
-      "password": "123123",
-      "address": {
-        "street": "Rua 1",
-        "number": "123",
-        "city": "Cidade",
-        "state": "SP",
-        "country": "Brasil"
-      }
+      "email": "admin@gmail.com",
+      "password": ""
+    },
+    {
+      "id": "bc28",
+      "username": "admin@admin.com.br",
+      "email": "teste@gmail.net",
+      "password": "Max01!@#"
+    },
+    {
+      "id": "3702",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "1202222222"
     }
   ],
   "orders": [],
