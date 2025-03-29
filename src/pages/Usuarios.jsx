@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import LayoutDefault from "../layouts/LayoutDefault"
 import Api from '../config/Api'
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 const Usuarios = () => {
 
     const[lista, setLista] = useState([])
