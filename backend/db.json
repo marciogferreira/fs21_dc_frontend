@@ -5,7 +5,8 @@
       "id": "c28e",
       "username": "teste  DIgital College",
       "email": "teste1212123@gmail.com",
-      "password": "1232423423"
+      "password": "1232423423",
+      "permissao": "admin"
     },
     {
       "id": "48a0",
@@ -33,15 +34,16 @@
     },
     {
       "id": "bc28",
-      "username": "admin@admin.com.br",
+      "username": "Max",
       "email": "teste@gmail.net",
-      "password": "Max01!@#"
+      "password": "Max01!@"
     },
     {
       "id": "3702",
-      "username": "admin",
-      "email": "admin@gmail.com",
-      "password": "1202222222"
+      "username": "Elmo",
+      "email": "elmo@gmail.com",
+      "password": "123123",
+      "permissao": "client"
     }
   ],
   "orders": [],

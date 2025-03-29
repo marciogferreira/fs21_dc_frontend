@@ -13,7 +13,8 @@ const FormUsuarios = () => {
     const [data, setData] = useState({
             username: '',
             email: '',
-            password: ''
+            password: '',
+            permissao: '',
     })
 
     async function salvarDados(values, form) {
@@ -99,6 +100,21 @@ const FormUsuarios = () => {
                             />
                             <div className="error">
                                 <ErrorMessage name="password" />
+                            </div>
+                        </div>
+
+                        <div className="mt-3">
+                            <label htmlFor="">Permissão</label>
+                           <select 
+                             value={values.permissao}
+                             onChange={handleChange} 
+                           name="permissao" id="permissao" className="form-control">
+                            <option value="">Selecione</option>
+                            <option value="admin">Admin</option>
+                            <option value="client">Cliente</option>
+                           </select>
+                            <div className="error">
+                                <ErrorMessage name="permissao" />
                             </div>
                         </div>
 
