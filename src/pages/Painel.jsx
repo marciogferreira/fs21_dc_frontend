@@ -7,7 +7,7 @@ const Painel = () => {
     const { user } = useContext(AuthContext)
     return (
         <LayoutDefault>
-            Seja bem-vindo(a), <strong> {user.username}</strong>
+            Seja bem-vindo(a), <strong> {user && user.username}</strong>
             <h3>Painel</h3>
             <h4>Gráficos</h4>
         </LayoutDefault>
