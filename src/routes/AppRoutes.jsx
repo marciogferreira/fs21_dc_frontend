@@ -8,6 +8,7 @@ import HomePage from '../pages/Home';
 import LoginPage from '../pages/Login';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
+import LoadingScreen from '../components/LoadingScreen';
 
 function PrivateRoute({ children }) {
     const { isLogged } = useContext(AuthContext)
@@ -22,6 +23,7 @@ function PrivateRoute({ children }) {
 function AppRoutes() {
     return (
         <>
+            <LoadingScreen />
             <BrowserRouter>
                 <Routes>
                     <Route path='/home' element={<HomePage />} />
