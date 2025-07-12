@@ -19,6 +19,7 @@ const Menu = () => {
                         <Link to="/" className='nav-link'>Painel</Link>
                         <NavDropdown title="Cadastros" id="basic-nav-dropdown">
                             <Link to="/produtos" className='nav-link'>Produtos</Link>
+                            <Link to="/autores" className='nav-link'>Autores</Link>
                             <Link to="/usuarios" className='nav-link'>Usuários</Link>
                             <NavDropdown.Divider />
                         </NavDropdown>

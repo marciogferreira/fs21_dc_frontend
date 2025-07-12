@@ -3,10 +3,10 @@ import axios from 'axios';
 const Api = axios.create({
     baseURL: 'https://fs21-dc-backend-z615.onrender.com/'
 })
+
 Api.defaults.headers.token = localStorage.getItem('token');
 
 export default Api;
-
 
 
 

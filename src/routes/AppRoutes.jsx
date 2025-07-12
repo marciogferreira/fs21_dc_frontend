@@ -9,6 +9,8 @@ import LoginPage from '../pages/Login';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import LoadingScreen from '../components/LoadingScreen';
+import AutoresIndex from '../pages/Autores/AutoresIndex';
+import AutoresForm from '../pages/Autores/AutoresForm';
 
 function PrivateRoute({ children }) {
     const { isLogged } = useContext(AuthContext)
@@ -35,6 +37,10 @@ function AppRoutes() {
                     <Route path='/usuarios' element={<PrivateRoute><Usuarios /></PrivateRoute>} />
                     <Route path='/usuarios/novo' element={<PrivateRoute><FormUsuarios /></PrivateRoute>} />
                     <Route path='/usuarios/editar/:id' element={<PrivateRoute><FormUsuarios /></PrivateRoute>} />
+
+                    <Route path='/autores' element={<PrivateRoute><AutoresIndex /></PrivateRoute>} />
+                    <Route path='/autores/novo' element={<PrivateRoute><AutoresForm /></PrivateRoute>} />
+                    <Route path='/autores/editar/:id' element={<PrivateRoute><AutoresForm /></PrivateRoute>} />
                 </Routes>
             </BrowserRouter>
         </>
