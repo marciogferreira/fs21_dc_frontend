@@ -11,15 +11,6 @@ function LoginPage() {
     const navigate = useNavigate()
 
     async function login(values) {
-        const response = await Api.get(`users?email=${values.email}&password=${values.password}`);
-        if(response.data.length > 0) {
-            const dados = response.data[0];
-            setUser(dados);
-            setIsLogged(true)
-            navigate('/')
-        } else {
-            alert("E-mail ou Senha Incorretos!")
-        }
         
     }
 

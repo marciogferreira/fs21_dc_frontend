@@ -12,7 +12,8 @@ const Usuarios = () => {
         // const dados = await response.json()
         // setLista(dados)
 
-        const response = await Api.get('users')
+        const response = await Api.get('usuarios')
+        console.log(response)
         setLista(response.data)
     }
 
