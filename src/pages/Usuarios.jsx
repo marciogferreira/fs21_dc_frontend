@@ -1,20 +1,25 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import LayoutDefault from "../layouts/LayoutDefault"
 import Api from '../config/Api'
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../contexts/AuthContext"
+
 const Usuarios = () => {
 
     const[lista, setLista] = useState([])
     const navigate = useNavigate()
+    const { setLoading } = useContext(AuthContext);
     
     async function getLista() {
-        // const response = await fetch('https://fakestoreapi.com/users')
-        // const dados = await response.json()
-        // setLista(dados)
+        try {
+            setLoading(true);
+            const response = await Api.get('usuarios')
+            setLista(response.data)
+        } catch(e) {
 
-        const response = await Api.get('usuarios')
-        console.log(response)
-        setLista(response.data)
+        } finally {
+            setLoading(false);
+        }
     }
 
     async function deletarItem(id) {
@@ -50,7 +55,6 @@ const Usuarios = () => {
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Email</th>
-                        <th>Endereço</th>
                         <th>
                             Ações
                         </th>
@@ -60,16 +64,11 @@ const Usuarios = () => {
                     {lista.map(item => (
                         <tr key={item.id}>
                             <td>{item.id}</td>
-                            <td>{item.username}</td>
+                            <td>{item.nome}</td>
                             <td>{item.email}</td>
                             <td>
-                                {item.adress && item.address.street}, 
-                                {item.adress && item.address.suite}, 
-                                {item.adress && item.address.city}, 
-                                {item.adress && item.address.zipcode}
-                            </td>
-                            <td>
                                 <button type="button" className="btn btn-primary" onClick={() => navigate(`/usuarios/editar/${item.id}`)}>Editar</button>
+                                &nbsp;
                                 <button type="button" className="btn btn-danger" onClick={() => deletarItem(item.id)}>Excluir</button>
                             </td>
                         </tr>

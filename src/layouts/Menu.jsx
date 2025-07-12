@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthContext';
 // https://dontpad.com/fs21
 const Menu = () => {
-    const { setIsLogged } = useContext(AuthContext)
+    const { logout } = useContext(AuthContext)
     return (
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
@@ -22,9 +22,8 @@ const Menu = () => {
                             <Link to="/usuarios" className='nav-link'>Usuários</Link>
                             <NavDropdown.Divider />
                         </NavDropdown>
-                        <a onClick={() => setIsLogged(false)} className='nav-link'>Sair</a>
+                        <a href='#' onClick={() => logout()} className='nav-link'>Sair</a>
                     </Nav>
-                    
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

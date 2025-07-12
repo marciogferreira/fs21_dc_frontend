@@ -3,12 +3,12 @@ import { Field, Form, Formik, ErrorMessage } from "formik";
 import Api from "../config/Api";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import Message from "../config/Message";
 import * as Yup from 'yup';
 
 function LoginPage() {
-    const { setIsLogged, setLoading } = useContext(AuthContext);
+    const { setIsLogged, isLogged, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
 
     async function login(values) {
@@ -39,6 +39,10 @@ function LoginPage() {
         email: Yup.string().required('Campo Obrigatório').email("E-mail Inválido"),
         password: Yup.string().required('Campo Obrigatório').min(6, 'Deve conter no mínimo 8 caracteres.')
     })
+
+    if(isLogged) {
+        return <Navigate to="/" />
+    }
 
     return (
         <>
