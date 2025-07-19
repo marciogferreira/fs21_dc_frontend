@@ -20,7 +20,7 @@ function PrivateRoute({ children }) {
     }
     
     return <Navigate to="/login" />
-}   
+}
 
 function AppRoutes() {
     return (

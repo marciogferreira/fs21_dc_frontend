@@ -3,6 +3,7 @@ import LayoutDefault from "../layouts/LayoutDefault"
 import Api from '../config/Api'
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../contexts/AuthContext"
+import Message from "../config/Message"
 
 const Usuarios = () => {
 
@@ -23,13 +24,12 @@ const Usuarios = () => {
     }
 
     async function deletarItem(id) {
-        const check = confirm("Deseja deletar este usuário?")
         try {
-            if(check) {
-                await Api.delete(`users/${id}`)
-                alert("Usuário Deletado com Sucesso.")
+            Message.confirmation("Deseja deletar este usuário?", async () => {
+                await Api.delete(`usuarios/${id}`)
+                Message.success("Usuário Deletado com Sucesso.")
                 getLista()
-            }
+            })
         } catch(error) {
             alert("Erro ao deletar usuário. " + error.message)
         }

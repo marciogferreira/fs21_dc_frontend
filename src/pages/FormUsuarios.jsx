@@ -4,6 +4,7 @@ import Api from '../config/Api'
 import { useNavigate, useParams } from "react-router-dom"
 import { Form, Formik, ErrorMessage, Field } from "formik"
 import * as Yup from 'yup'
+import Message from "../config/Message"
 
 const FormUsuarios = () => {
     
@@ -11,22 +12,22 @@ const FormUsuarios = () => {
     const params = useParams();
 
     const [data, setData] = useState({
-            username: '',
+            nome: '',
             email: '',
-            password: '',
+            senha: '',
             permissao: '',
     })
 
     async function salvarDados(values, form) {
         if(params.id) {
             // Editar
-            await Api.put(`users/${params.id}`, values);
-            alert("Usuário Atualizado com Sucesso.")
+            await Api.put(`usuarios/${params.id}`, values);
+            Message.success("Usuário Atualizado com Sucesso.")
             form.resetForm()
         } else {
             // Salvar
-            await Api.post('users', values);
-            alert("Usuário Salvo com Sucesso.")
+            await Api.post('usuarios', values);
+            Message.success("Usuário Salvo com Sucesso.")
             form.resetForm()
         }
         navigate('/usuarios')
@@ -34,15 +35,15 @@ const FormUsuarios = () => {
 
     async function getData() {
         if(params.id) {
-            const response = await Api.get(`users/${params.id}`);
+            const response = await Api.get(`usuarios/${params.id}`);
             setData(response.data)
         }
     }
 
     const validationSchema = Yup.object().shape({
-        username: Yup.string().required('Campo Obrigatório'),
+        nome: Yup.string().required('Campo Obrigatório'),
         email: Yup.string().email('E-mail inválido').required('Campo Obrigatório'),
-        password: Yup.string().required('Campo Obrigatório')
+        senha: Yup.string().required('Campo Obrigatório')
         .min(6, 'Informe pelo menos 6 caracteres.')
         .max(10, 'Informe no máximo 10 caractere')
     })
@@ -70,10 +71,10 @@ const FormUsuarios = () => {
                             <Field 
                                 type="text" 
                                 className="form-control" 
-                                name="username" 
+                                name="nome" 
                             />
                             <div className="error">
-                                <ErrorMessage name="username" />
+                                <ErrorMessage name="nome" />
                             </div>
                         </div>
                         <div className="mt-3">
@@ -92,14 +93,14 @@ const FormUsuarios = () => {
                         <div className="mt-3">
                             <label htmlFor="">Senha</label>
                             <input 
-                                type="password" 
+                                type="senha" 
                                 className="form-control" 
-                                name="password" 
-                                value={values.password}
+                                name="senha" 
+                                value={values.senha}
                                 onChange={handleChange} 
                             />
                             <div className="error">
-                                <ErrorMessage name="password" />
+                                <ErrorMessage name="senha" />
                             </div>
                         </div>
 

@@ -15,6 +15,15 @@ const Message = {
             icon: "error",
         });
     },
+    errorCallBack: (msg, callBack) => {
+        swal({
+            title: "Oops!",
+            text: msg,
+            icon: "error",
+        }).then(() => {
+            callBack();
+        });
+    },
     info: (msg) => {
         swal({
             title: "Atenção!",
@@ -22,6 +31,20 @@ const Message = {
             icon: "info",
         });
     },
+    confirmation: (msg, callBack) => {
+        swal({
+            title: "Atenção",
+            text: msg,
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                   callBack()
+                }
+            });
+    }
 }
 
 export default Message;
